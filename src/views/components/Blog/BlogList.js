@@ -10,7 +10,7 @@ const BlogList = ({data = []}) => {
         {
             data.map((item, index) => (
                 <Col key={index}>
-                    <BlogItem item={item}/>
+                    <BlogItem {...item}/>
                 </Col>
             ))
         }
@@ -24,11 +24,11 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
-
+    
 `;
 
 const Col = styled.div`
-
+  padding: 15px;
 `;
 
 export default BlogList;
