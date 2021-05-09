@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import axios from 'axios';
+import {navigate} from "../../../lib/history";
 
 const BlogForm = () => {
 
@@ -9,7 +10,7 @@ const BlogForm = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const result = await axios({
+        await axios({
             method: 'post',
             url: 'http://localhost:4000/blog',
             data: {
@@ -17,6 +18,7 @@ const BlogForm = () => {
                 content
             }
         })
+        navigate('/')
     }
 
   return (

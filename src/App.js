@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import {Route, Switch} from 'react-router-dom';
 import List from "./views/pages/List";
@@ -8,8 +8,19 @@ import Detail from "./views/pages/Detail";
 import Template from "./views/components/Template";
 import PageNotFound from "./views/pages/PageNotFound";
 import {GlobalStyle} from "./Styled/GlobalStyle";
+import history from './lib/history';
 
 const App = () => {
+
+    useEffect(() => {
+        history.listen((h, action) => {
+            console.log('@@', h)
+            console.log('@@', action)
+            if(action === 'PUSH') {
+                window.scroll(0,0);
+            }
+        })
+    })
 
   return (
     <Container>
