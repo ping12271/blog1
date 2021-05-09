@@ -30,7 +30,7 @@ const App = () => {
                 <Route exact path={'/'} component={List}/>
                 <Route path={'/detail/:id'} component={Detail}/>
                 <Route path={'/write'} component={Write}/>
-                <Route path={'/edit'} component={Edit}/>
+                <Route path={'/edit/:id'} component={Edit}/>
                 <Route component={PageNotFound}/>
             </Switch>
         </Template>

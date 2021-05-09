@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import EditContainer from "../containers/EditContainer";
 
 const Edit = () => {
 
   return (
     <Container>
-        Edit
+        <EditContainer/>
     </Container>
   )
 }

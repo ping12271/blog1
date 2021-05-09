@@ -1,31 +1,22 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import axios from 'axios';
-import {navigate} from "../../../lib/history";
 import {Button} from "../Button/Button.Styled";
 import {ButtonEnum} from "../../../constants";
 
-const BlogForm = () => {
+const BlogForm = ({onSubmit, buttonText}) => {
 
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
 
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        await axios({
-            method: 'post',
-            url: 'http://localhost:4000/blog',
-            data: {
-                title,
-                content
-            }
-        })
-        navigate('/')
-    }
-
   return (
     <Container>
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit({
+                title,
+                content
+            })
+        }}>
             <FormGroup>
                 <Label htmlFor="title">제목</Label>
                 <Input
@@ -41,7 +32,7 @@ const BlogForm = () => {
                           onChange={(e) => {setContent(e.target.value)}}
                 />
             </FormGroup>
-            <Button sort={ButtonEnum.Primary}>추가</Button>
+            <Button sort={ButtonEnum.Primary}>{buttonText}</Button>
         </Form>
     </Container>
   )
