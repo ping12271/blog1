@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import axios from 'axios';
 import {navigate} from "../../../lib/history";
+import {Button} from "../Button/Button.Styled";
+import {ButtonEnum} from "../../../constants";
 
 const BlogForm = () => {
 
@@ -23,10 +25,10 @@ const BlogForm = () => {
 
   return (
     <Container>
-        <form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit}>
             <FormGroup>
-                <label htmlFor="title">제목</label>
-                <input
+                <Label htmlFor="title">제목</Label>
+                <Input
                     type="text"
                     id={'title'}
                     value={title}
@@ -34,13 +36,13 @@ const BlogForm = () => {
                 />
             </FormGroup>
             <FormGroup>
-                <label htmlFor="title">내용</label>
-                <textarea id="content"
+                <Label htmlFor="title">내용</Label>
+                <Textarea id="content"
                           onChange={(e) => {setContent(e.target.value)}}
                 />
             </FormGroup>
-            <button>추가</button>
-        </form>
+            <Button sort={ButtonEnum.Primary}>추가</Button>
+        </Form>
     </Container>
   )
 }
@@ -50,7 +52,43 @@ const Container = styled.div`
 `;
 
 const FormGroup = styled.div`
+  margin-bottom: 30px;
+`;
 
+const Form = styled.form`
+
+`;
+
+const Label = styled.label`
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+`;
+
+const Input = styled.input`
+  border: 1px solid #ddd;
+  height: 40px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const Textarea = styled.textarea`
+  border: 1px solid #ddd;
+  height: 500px;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  resize: none;
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 export default BlogForm;
