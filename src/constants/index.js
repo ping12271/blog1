@@ -1,4 +1,5 @@
 export const ButtonEnum = {
     Primary: 'primary',
-    Info: 'info'
+    Info: 'info',
+    Danger: 'danger'
 }

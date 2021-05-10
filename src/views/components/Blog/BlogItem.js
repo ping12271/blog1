@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import moment from 'moment';
 import {navigate} from "../../../lib/history";
 
 const BlogItem = ({title, content, create_at, _id}) => {
@@ -8,7 +9,7 @@ const BlogItem = ({title, content, create_at, _id}) => {
     <Container onClick={() => navigate(`/detail/${_id}`)}>
         <h3>{title}</h3>
         <p>{content}</p>
-        <span>{create_at}</span>
+        <span>{moment(create_at).format('YYYY-MM-DD hh:mm')}</span>
     </Container>
   )
 }

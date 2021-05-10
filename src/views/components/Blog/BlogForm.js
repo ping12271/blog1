@@ -3,10 +3,10 @@ import styled from "styled-components";
 import {Button} from "../Button/Button.Styled";
 import {ButtonEnum} from "../../../constants";
 
-const BlogForm = ({onSubmit, buttonText}) => {
+const BlogForm = ({onSubmit, buttonText, defaultValues}) => {
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState(defaultValues?.title || '');
+    const [content, setContent] = useState(defaultValues?.content);
 
   return (
     <Container>

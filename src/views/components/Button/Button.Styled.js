@@ -23,4 +23,9 @@ export const Button = styled.button`
     color: #fff;
     border: 1px solid #1F9811;
   `}
+  ${props => props.sort === ButtonEnum.Danger && css`
+    background: darkred;
+    color: #fff;
+    border: 1px solid darkred;
+  `}
 `;
